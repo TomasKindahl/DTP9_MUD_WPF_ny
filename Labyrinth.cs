@@ -83,6 +83,7 @@ namespace DTP9_MUD_WPF
             {
                 int next = labyrinth[current].North; // System.ArgumentOutOfRangeException om rummet inte finns
                 warning = "";
+                if (next >= labyrinth.Count) { warning = "rummet är inte implementerat!\n"; return; }
                 if (next == Room.NoDoor) warning = "du gick in i väggen!\n";
                 else current = next;
             }
@@ -90,6 +91,7 @@ namespace DTP9_MUD_WPF
             {
                 int next = labyrinth[current].South; // System.ArgumentOutOfRangeException om rummet inte finns
                 warning = "";
+                if (next >= labyrinth.Count) { warning = "rummet är inte implementerat!\n"; return; }
                 if (next == Room.NoDoor) warning = "du gick in i väggen!\n";
                 else current = next;
             }
@@ -97,6 +99,7 @@ namespace DTP9_MUD_WPF
             {
                 int next = labyrinth[current].East; // System.ArgumentOutOfRangeException om rummet inte finns
                 warning = "";
+                if (next >= labyrinth.Count) { warning = "rummet är inte implementerat!\n"; return; }
                 if (next == Room.NoDoor) warning = "du gick in i väggen!\n";
                 else current = next;
             }
@@ -104,6 +107,7 @@ namespace DTP9_MUD_WPF
             {
                 int next = labyrinth[current].West; // System.ArgumentOutOfRangeException om rummet inte finns
                 warning = "";
+                if (next >= labyrinth.Count) { warning = "rummet är inte implementerat!\n"; return; }
                 if (next == Room.NoDoor) warning = "du gick in i väggen!\n";
                 else current = next;
             }
