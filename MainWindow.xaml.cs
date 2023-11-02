@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace DTP9_MUD_WPF_stub
+namespace DTP9_MUD_WPF
 {
     public partial class MainWindow : Window
     {
@@ -22,8 +22,12 @@ namespace DTP9_MUD_WPF_stub
         {
             InitializeComponent();
             // Gör all initiering nedanför den här texten!
-            Title.Text = "SIMSALABIM!";
-            StoryField.Text = "Abrakadabra\nhokus pokus\nfiliokus";
+            // Title.Text = "SIMSALABIM!";
+            Title.Text = Labyrinth.CurrentTitle();
+            // StoryField.Text = "Abrakadabra\nhokus pokus\nfiliokus";
+            StoryField.Text = Labyrinth.CurrentText() + "\n" +
+                Labyrinth.WarningText();
+            // NYI: Labyrinth.CurrentImage()
             Uri img = new Uri(imgDir+"illusion.png", UriKind.RelativeOrAbsolute);
             MainImage.Source = BitmapFrame.Create(img);
         }
