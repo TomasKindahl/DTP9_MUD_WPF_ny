@@ -69,7 +69,42 @@ namespace DTP9_MUD_WPF
                 Uri img = new Uri(imgDir + Labyrinth.CurrentImage(), UriKind.RelativeOrAbsolute);
                 MainImage.Source = BitmapFrame.Create(img);
             }
-
+            else if (e.Key == Key.Up)
+            {
+                Labyrinth.DoCommand("w");
+                Title.Text = Labyrinth.CurrentTitle();
+                StoryField.Text = Labyrinth.CurrentText() + "\n" +
+                    Labyrinth.WarningText();
+                Uri img = new Uri(imgDir + Labyrinth.CurrentImage(), UriKind.RelativeOrAbsolute);
+                MainImage.Source = BitmapFrame.Create(img);
+            }
+            else if (e.Key == Key.Left)
+            {
+                Labyrinth.DoCommand("a");
+                Title.Text = Labyrinth.CurrentTitle();
+                StoryField.Text = Labyrinth.CurrentText() + "\n" +
+                    Labyrinth.WarningText();
+                Uri img = new Uri(imgDir + Labyrinth.CurrentImage(), UriKind.RelativeOrAbsolute);
+                MainImage.Source = BitmapFrame.Create(img);
+            }
+            else if (e.Key == Key.Right)
+            {
+                Labyrinth.DoCommand("d");
+                Title.Text = Labyrinth.CurrentTitle();
+                StoryField.Text = Labyrinth.CurrentText() + "\n" +
+                    Labyrinth.WarningText();
+                Uri img = new Uri(imgDir + Labyrinth.CurrentImage(), UriKind.RelativeOrAbsolute);
+                MainImage.Source = BitmapFrame.Create(img);
+            }
+            else if (e.Key == Key.Down)
+            {
+                Labyrinth.DoCommand("s");
+                Title.Text = Labyrinth.CurrentTitle();
+                StoryField.Text = Labyrinth.CurrentText() + "\n" +
+                    Labyrinth.WarningText();
+                Uri img = new Uri(imgDir + Labyrinth.CurrentImage(), UriKind.RelativeOrAbsolute);
+                MainImage.Source = BitmapFrame.Create(img);
+            }
         }
     }
 }
