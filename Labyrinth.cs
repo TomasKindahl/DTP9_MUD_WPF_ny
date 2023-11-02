@@ -76,6 +76,7 @@ namespace DTP9_MUD_WPF
         static int current = 0;
         public static string HelpTitle() { return help.Title; }
         public static string HelpText() { return help.Text; }
+        public static string HelpImage() { return help.Image; }
         public static void DoCommand(string command)
         {
             if (command == "w")

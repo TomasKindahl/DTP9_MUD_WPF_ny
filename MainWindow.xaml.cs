@@ -54,6 +54,22 @@ namespace DTP9_MUD_WPF
                 Uri img = new Uri(imgDir + "winterbath.png", UriKind.RelativeOrAbsolute);
                 MainImage.Source = BitmapFrame.Create(img);
             }
+            else if (e.Key == Key.H)
+            {
+                Title.Text = Labyrinth.HelpTitle();
+                StoryField.Text = Labyrinth.HelpText();
+                Uri img = new Uri(imgDir + Labyrinth.HelpImage(), UriKind.RelativeOrAbsolute);
+                MainImage.Source = BitmapFrame.Create(img);
+            }
+            else if (e.Key == Key.Q)
+            {
+                Title.Text = Labyrinth.CurrentTitle();
+                StoryField.Text = Labyrinth.CurrentText() + "\n" +
+                    Labyrinth.WarningText();
+                Uri img = new Uri(imgDir + Labyrinth.CurrentImage(), UriKind.RelativeOrAbsolute);
+                MainImage.Source = BitmapFrame.Create(img);
+            }
+
         }
     }
 }
