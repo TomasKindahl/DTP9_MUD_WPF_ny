@@ -27,8 +27,8 @@ namespace DTP9_MUD_WPF
             // StoryField.Text = "Abrakadabra\nhokus pokus\nfiliokus";
             StoryField.Text = Labyrinth.CurrentText() + "\n" +
                 Labyrinth.WarningText();
-            // NYI: Labyrinth.CurrentImage()
-            Uri img = new Uri(imgDir+"illusion.png", UriKind.RelativeOrAbsolute);
+            // NYI: Labyrinth.CurrentImage();
+            Uri img = new Uri(imgDir+ Labyrinth.CurrentImage(), UriKind.RelativeOrAbsolute);
             MainImage.Source = BitmapFrame.Create(img);
         }
         private void ApplicationKeyPress(object sender, KeyEventArgs e)

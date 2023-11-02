@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace DTP9_MUD_WPF
 {
@@ -12,14 +13,16 @@ namespace DTP9_MUD_WPF
         int self;
         string title;
         string text;
+        string image;
         int north, east, south, west;
-        public Room(int self, string name, string text, int N, int E, int S, int W)
+        public Room(int self, string name, string image, string text, int N, int E, int S, int W)
         {
-            this.self = self; this.title = name; this.text = text;
+            this.self = self; this.title = name; this.image = image; this.text = text;
             north = N; east = E; south = S; west = W;
         }
         public string Title { get { return title; } }
         public string Text { get { return text; } }
+        public string Image { get { return image; } }
         public int North { get { return north; } }
         public int East { get { return east; } }
         public int South { get { return south; } }
@@ -40,7 +43,7 @@ namespace DTP9_MUD_WPF
     public class Labyrinth
     {
         static string warning = "";
-        static Room help = new Room(-1, "Help",
+        static Room help = new Room(-1, "Help", "komet.png",
                "Följande kommandon finns:\n" +
                "  w - gå genom dörren norrut\n" +
                "  s - gå genom dörren söderut\n" +
@@ -51,21 +54,21 @@ namespace DTP9_MUD_WPF
                "  z - avsluta\n",
                Room.NoDoor, Room.NoDoor, Room.NoDoor, Room.NoDoor);
         static List<Room> labyrinth = new List<Room>() {
-            new Room(0, "Start",
+            new Room(0, "Start", "ingang-stangd.png",
                 "Du står i ett rum med rött\n" +
                 "tegel. Väggarna fladdrar i\n" +
                 "facklornas sken. Du ser en\n" +
                 "hög med tyg nere till vänster. ",
                 N:3, E:Room.NoDoor, S:Room.NoDoor, W:Room.NoDoor),
-            new Room(1, "Lagerrum väst",
+            new Room(1, "Lagerrum väst", "z-lagerrum-vast.png",
                 "Du står i ett rum utan vägar\n" +
                 "framåt. Du ser en hög med\n" +
                 "skräp nere till vänster.",
                 N:Room.NoDoor, E:2, S:Room.NoDoor, W:Room.NoDoor),
-            new Room(2, "Vaktrum väst",
+            new Room(2, "Vaktrum väst", "z-vaktrum-vast.png",
                 "Du står i ett övergivet vaktrum.",
                 N:Room.NoDoor, E: 3, S:Room.NoDoor, W:1),
-            new Room(3, "Korsvägen",
+            new Room(3, "Korsvägen", "z-korsvag-oppet.png",
                 "Du står i korsväg. Det går\n" +
                 "gångar i alla riktningar.",
                 N:6, E:4, S:0, W:2)
@@ -119,6 +122,10 @@ namespace DTP9_MUD_WPF
         internal static string CurrentText()
         {
             return labyrinth[current].Text;
+        }
+        internal static string CurrentImage()
+        {
+            return labyrinth[current].Image;
         }
         internal static string WarningText()
         {
